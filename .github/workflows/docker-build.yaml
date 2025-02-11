@@ -6,9 +6,12 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+        
+      - name: Lister les fichiers
+        run: ls -la
 
 
-###- checkout code
+###- checkout code (validé)
 ###- ls
 ###- docker build
 ###- docker images
