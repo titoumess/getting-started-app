@@ -3,5 +3,5 @@ on: [push]
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
-    steps: ubuntu-latest
+    steps:
       - run: ls
