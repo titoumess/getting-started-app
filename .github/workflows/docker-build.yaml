@@ -10,10 +10,13 @@ jobs:
       - name: Lister les fichiers
         run: ls -la
 
+      - name: Build de l’image Docker
+        run: docker build -t tuto-git-actions .
+
 
 ###- checkout code (validé)
-###- ls
-###- docker build
+###- ls (validé)
+###- docker build 
 ###- docker images
 ###- docker push
 ###(pas de credentials en clair)
