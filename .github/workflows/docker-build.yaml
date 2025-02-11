@@ -25,6 +25,12 @@ jobs:
       - name: Lister les images Docker après le build
         run: docker images
 
+      - name: Taguer l’image pour Docker Hub
+        run: docker tag tuto-git-actions:latest titouanmessager375/tuto-git-actions:latest
+
+      - name: Pousser l’image vers Docker Hub
+        run: docker push titouanmessager375/tuto-git-actions:latest
+
 
 ###- checkout code (validé)
 ###- ls (validé)
