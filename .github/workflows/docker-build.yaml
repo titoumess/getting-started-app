@@ -10,6 +10,12 @@ jobs:
       - name: Lister les fichiers
         run: ls -la
 
+      - name: Connexion à Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}  # Utilisation du secret
+          password: ${{ secrets.DOCKER_PASSWORD }}  # Utilisation du secret
+
       - name: Build de l’image Docker
         run: docker build -t tuto-git-actions .
 
