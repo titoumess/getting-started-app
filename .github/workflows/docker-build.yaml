@@ -10,6 +10,18 @@ jobs:
       - name: Lister les fichiers
         run: ls -la
 
+      - name: 📌 Extraire la dernière version du tag Git
+        id: get_version
+        run: |
+          LATEST_TAG=$(git tag --sort=-v:refname | head -n 1)
+          if [[ -z "$LATEST_TAG" ]]; then
+            LATEST_TAG="v1.0.0"
+          fi
+          echo "Dernier tag trouvé : $LATEST_TAG"
+          NEW_TAG=$(echo $LATEST_TAG | awk -F. -v OFS=. '{print $1,$2,$3+1}')
+          echo "Nouveau tag généré : $NEW_TAG"
+          echo "new_version=$NEW_TAG" >> $GITHUB_ENV
+
       - name: Connexion à Docker Hub
         uses: docker/login-action@v3
         with:
