@@ -16,6 +16,9 @@ jobs:
       - name: Exécuter `ls` dans un conteneur Docker
         run: docker run --rm tuto-git-actions ls -la
 
+      - name: Lister les images Docker après le build
+        run: docker images
+
 
 ###- checkout code (validé)
 ###- ls (validé)
